@@ -1,0 +1,11 @@
+<!doctype html>
+<html data-theme="light" lang="<%= site.locale %>">
+  <head>
+    <%= render "head", metadata: site.metadata, title: data.title %>
+  </head>
+  <body class="<%= data.layout %> <%= data.page_class %>">
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>

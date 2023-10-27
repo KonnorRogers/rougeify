@@ -1,0 +1,4 @@
+---
+template_engine: erb
+---
+<%= require "json"; JSON.generate(syntax_schema).html_safe -%>
