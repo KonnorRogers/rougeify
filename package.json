@@ -17,6 +17,7 @@
     "read-cache": "^1.0.0"
   },
   "dependencies": {
-    "@picocss/pico": "^1.5.10"
+    "@picocss/pico": "^1.5.10",
+    "prismjs": "^1.29.0"
   }
 }

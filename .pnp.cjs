@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss-import", "virtual:48c6a7c95a33e107c118732ed39016b08972b517d21ac7c60acf1a21b2d8c6bd1194ac3321a2fd9f9dd24b8aedd2c695fb5433f77c73969a6745450f47a2e4c9#npm:15.1.0"],\
             ["postcss-load-config", "virtual:48c6a7c95a33e107c118732ed39016b08972b517d21ac7c60acf1a21b2d8c6bd1194ac3321a2fd9f9dd24b8aedd2c695fb5433f77c73969a6745450f47a2e4c9#npm:4.0.1"],\
             ["postcss-preset-env", "virtual:48c6a7c95a33e107c118732ed39016b08972b517d21ac7c60acf1a21b2d8c6bd1194ac3321a2fd9f9dd24b8aedd2c695fb5433f77c73969a6745450f47a2e4c9#npm:9.2.0"],\
+            ["prismjs", "npm:1.29.0"],\
             ["read-cache", "npm:1.0.0"]\
           ],\
           "linkType": "SOFT"\
@@ -2348,6 +2349,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["prismjs", [\
+        ["npm:1.29.0", {\
+          "packageLocation": "./.yarn/cache/prismjs-npm-1.29.0-6faa5b04b8-007a8869d4.zip/node_modules/prismjs/",\
+          "packageDependencies": [\
+            ["prismjs", "npm:1.29.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["read-cache", [\
         ["npm:1.0.0", {\
           "packageLocation": "./.yarn/cache/read-cache-npm-1.0.0-00fa89ed05-cffc728b9e.zip/node_modules/read-cache/",\
@@ -2383,6 +2393,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss-import", "virtual:48c6a7c95a33e107c118732ed39016b08972b517d21ac7c60acf1a21b2d8c6bd1194ac3321a2fd9f9dd24b8aedd2c695fb5433f77c73969a6745450f47a2e4c9#npm:15.1.0"],\
             ["postcss-load-config", "virtual:48c6a7c95a33e107c118732ed39016b08972b517d21ac7c60acf1a21b2d8c6bd1194ac3321a2fd9f9dd24b8aedd2c695fb5433f77c73969a6745450f47a2e4c9#npm:4.0.1"],\
             ["postcss-preset-env", "virtual:48c6a7c95a33e107c118732ed39016b08972b517d21ac7c60acf1a21b2d8c6bd1194ac3321a2fd9f9dd24b8aedd2c695fb5433f77c73969a6745450f47a2e4c9#npm:9.2.0"],\
+            ["prismjs", "npm:1.29.0"],\
             ["read-cache", "npm:1.0.0"]\
           ],\
           "linkType": "SOFT"\

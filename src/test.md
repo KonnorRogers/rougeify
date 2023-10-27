@@ -4,11 +4,15 @@
 layout: default
 ---
 
+Diff
+
 ```diff
 Hello
 - World
 + Universe
 ```
+
+Ruby
 
 ```rb
 def bubble_sort(list)
@@ -27,6 +31,8 @@ def bubble_sort(list)
   list
 end
 ```
+
+HTML
 
 ```html
 <!DOCTYPE html>
@@ -47,16 +53,12 @@ end
   </style>
 </head>
 <body>
-
+  <main>Hi from HTML</main>
 </body>
 </html>
 ```
 
-```rb
-{
-  blah: "blah"
-}
-```
+Markdown
 
 ```md
 **I am bolded text!**
