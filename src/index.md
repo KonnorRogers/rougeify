@@ -2,10 +2,14 @@
 layout: default
 ---
 
+What is this?
+
+This is a [PrismJS](https://prismjs.com/) -> [Rouge](https://github.com/rouge-ruby/rouge) theme converter. Yes, there will be bugs. Yes things may not be 100% accurate. But this is merely a starting point.
+
+<%= markdownify(site.metadata.github_help) %>
+
 <style id="rouge-stylesheet"></style>
 <style id="prism-stylesheet"></style>
-
-<button id="prism-to-rouge" style="margin-inline-start: auto; margin-inline-end: 40px; width: auto;">Convert</button>
 
 <style>
   .two-col {
@@ -26,7 +30,7 @@ layout: default
   }
 
   .split-panel-custom::part(divider) {
-    background-color: var(--sl-color-pink-600);
+    background-color: var(--primary);
     height: calc(100% - 3em);
     top: 1.75em;
   }
@@ -34,13 +38,13 @@ layout: default
   .split-panel-custom sl-icon {
     position: absolute;
     border-radius: var(--sl-border-radius-small);
-    background: var(--sl-color-pink-600);
+    background: var(--primary);
     color: var(--sl-color-neutral-0);
     padding: 0.5rem 0.125rem;
   }
 
   .split-panel-custom::part(divider):focus-visible {
-    background-color: var(--sl-color-primary-600);
+    background-color: var(--primary);
     color: var(--sl-color-neutral-0);
   }
 
@@ -48,306 +52,56 @@ layout: default
   }
 </style>
 
-<sl-split-panel class="split-panel-custom">
+<% site.data.prism_themes.each do |_key, theme| %>
+  <textarea id="prism-theme-content-<%= theme.theme_name %>" hidden><%= theme.content %></textarea>
+<% end %>
+
+
+<div style="display: flex; justify-content: space-between;">
+  <sl-select id="prism-theme-selector" value="">
+    <sl-option value="">Choose a Prism Theme:</sl-option>
+
+    <% site.data.prism_themes.each do |_key, theme| %>
+      <sl-option value="<%= theme.theme_name %>"><%= theme.theme_name %></sl-option>
+    <% end %>
+  </sl-select>
+
+  <button id="prism-to-rouge" style="margin-inline-start: auto; margin-inline-end: 40px; width: auto;">Convert</button>
+</div>
+
+<sl-split-panel class="split-panel-custom" style="margin-top: 1rem;">
   <sl-icon slot="divider" name="grip-vertical"></sl-icon>
 
   <div slot="start" style="padding-inline-end: 1rem;">
-    <label for="prism-textarea">Prism Stylesheet (VSCode Dark)</label>
-    <textarea id="prism-textarea">
-pre[class*="language-"],
-code[class*="language-"] {
-	color: #d3d4d4;
-	font-size: 12px;
-	text-shadow: none;
-	font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
-	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	line-height: 0.5;
-	-moz-tab-size: 3;
-	-o-tab-size: 3;
-	tab-size: 3;
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-}
-
-pre[class*="language-"]::selection,
-code[class*="language-"]::selection,
-pre[class*="language-"] *::selection,
-code[class*="language-"] *::selection {
-	text-shadow: none;
-	background: #263F78;
-}
-
-@media print {
-	pre[class*="language-"],
-	code[class*="language-"] {
-		text-shadow: none;
-	}
-}
-
-pre[class*="language-"] {
-	padding: 0em;
-	margin: .4em 0;
-	overflow: auto;
-	background: #0e1e1e;
-}
-
-:not(pre) > code[class*="language-"] {
-	padding: .0em .3em;
-	border-radius: .2em;
-	color: #db3c69;
-	background: #0e1e1e;
-}
-/*********************************************************
-* Tokens
-*/
-.namespace {
-	opacity: .6;
-}
-
-.token.doctype .token.doctype-tag {
-	color: #568CD6;
-}
-
-.token.doctype .token.name {
-	color: #8cdcfe;
-}
-
-.token.comment,
-.token.prolog {
-	color: #5a9955;
-}
-
-.token.punctuation,
-.language-html .language-css .token.punctuation,
-.language-html .language-javascript .token.punctuation {
-	color: #d3d4d4;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.inserted,
-.token.unit {
-	color: #b4cea8;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.deleted {
-	color: #ce9177;
-}
-
-.language-css .token.string.url {
-	text-decoration: underline;
-}
-
-.token.operator,
-.token.entity {
-	color: #d3d4d4;
-}
-
-.token.operator.arrow {
-	color: #568CD6;
-}
-
-.token.atrule {
-	color: #ce9177;
-}
-
-.token.atrule .token.rule {
-	color: #c585c0;
-}
-
-.token.atrule .token.url {
-	color: #8cdcfe;
-}
-
-.token.atrule .token.url .token.function {
-	color: #dcdcaa;
-}
-
-.token.atrule .token.url .token.punctuation {
-	color: #d3d4d4;
-}
-
-.token.keyword {
-	color: #568CD6;
-}
-
-.token.keyword.module,
-.token.keyword.control-flow {
-	color: #c585c0;
-}
-
-.token.function,
-.token.function .token.maybe-class-name {
-	color: #dcdcaa;
-}
-
-.token.regex {
-	color: #d16968;
-}
-
-.token.important {
-	color: #568cd6;
-}
-
-.token.italic {
-	font-style: italic;
-}
-
-.token.constant {
-	color: #8cdcfe;
-}
-
-.token.class-name,
-.token.maybe-class-name {
-	color: #3ec9b0;
-}
-
-.token.console {
-	color: #8cdcfe;
-}
-
-.token.parameter {
-	color: #8cdcfe;
-}
-
-.token.interpolation {
-	color: #8cdcfe;
-}
-
-.token.punctuation.interpolation-punctuation {
-	color: #568cd6;
-}
-
-.token.boolean {
-	color: #568cd6;
-}
-
-.token.property,
-.token.variable,
-.token.imports .token.maybe-class-name,
-.token.exports .token.maybe-class-name {
-	color: #8cdcfe;
-}
-
-.token.selector {
-	color: #d6ba7d;
-}
-
-.token.escape {
-	color: #d6ba7d;
-}
-
-.token.tag {
-	color: #568cd6;
-}
-
-.token.tag .token.punctuation {
-	color: #808079;
-}
-
-.token.cdata {
-	color: #808080;
-}
-
-.token.attr-name {
-	color: #9cdcfe;
-}
-
-.token.attr-value,
-.token.attr-value .token.punctuation {
-	color: #ce9178;
-}
-
-.token.attr-value .token.punctuation.attr-equals {
-	color: #d4d4d4;
-}
-
-.token.entity {
-	color: #569cd6;
-}
-
-.token.namespace {
-	color: #4ec9b0;
-}
-/*********************************************************
-* Language Specific
-*/
-
-pre[class*="language-javascript"],
-code[class*="language-javascript"],
-pre[class*="language-jsx"],
-code[class*="language-jsx"],
-pre[class*="language-typescript"],
-code[class*="language-typescript"],
-pre[class*="language-tsx"],
-code[class*="language-tsx"] {
-	color: #9cdcfe;
-}
-
-pre[class*="language-css"],
-code[class*="language-css"] {
-	color: #ce9178;
-}
-
-pre[class*="language-html"],
-code[class*="language-html"] {
-	color: #d4d4d4;
-}
-
-.language-regex .token.anchor {
-	color: #dcdcaa;
-}
-
-.language-html .token.punctuation {
-	color: #808080;
-}
-/*********************************************************
-* Line highlighting
-*/
-pre[class*="language-"] > code[class*="language-"] {
-	position: relative;
-	z-index: 1;
-}
-
-.line-highlight.line-highlight {
-	background: #f7ebc6;
-	box-shadow: inset 5px 0 0 #f7d87c;
-	z-index: 0;
-}
-    </textarea>
+    <label for="prism-textarea">Prism Stylesheet</label>
+    <textarea id="prism-textarea"></textarea>
   </div>
 
   <div slot="end" style="padding-inline-start: 1rem;">
     <label for="rouge-textarea">Rouge Stylesheet</label>
-    <textarea id="rouge-textarea">
-    </textarea>
+    <textarea id="rouge-textarea"></textarea>
   </div>
 </sl-split-panel>
 
-Diff
-
-```diff
+<% diff_code = capture do %>
 Hello
 - World
 + Universe
-```
+<% end %>
 
-Ruby
+<div class="two-col">
+  <label>
+    Diff (PrismJS)
+    <pre><code  class="language-diff"><%= diff_code %></code></pre>
+  </label>
+
+  <label>
+    Diff (Rouge)
+  <%= markdownify("```diff\n#{diff_code.html_safe}```") %>
+  </label>
+</div>
+
+
 
 <% ruby_code = capture do %>
 def bubble_sort(list)
@@ -365,17 +119,21 @@ def bubble_sort(list)
 
   list
 end
-<% end %>
+<%- end -%>
 
 <div class="two-col">
-  <pre class="language-ruby"><code class="language-ruby"><%= ruby_code %></code></pre>
+  <label>
+    Ruby (PrismJS)
+    <pre><code  class="language-ruby"><%= ruby_code %></code></pre>
+  </label>
 
-  <%= markdownify("```rb\n#{ruby_code.html_safe}\n```") %>
+  <label>
+    Ruby (Rouge)
+  <%= markdownify("```rb\n#{ruby_code.html_safe}```") %>
+  </label>
 </div>
 
-HTML
-
-```html
+<% html_code = capture do %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -397,15 +155,92 @@ HTML
   <main>Hi from HTML</main>
 </body>
 </html>
-```
+<% end %>
 
-Markdown
+<div class="two-col">
+  <label>
+    HTML (PrismJS)
+    <pre><code class="language-html"><%= CGI.unescape(html_code) %></code></pre>
+  </label>
 
-```md
+  <label>
+    HTML (Rouge)
+  <%= markdownify("```html\n#{html_code.html_safe}```") %>
+  </label>
+</div>
+
+<% css_code = capture do %>
+  :link {
+    color: blue;
+  }
+
+  thing::part(blah) {
+    opacity: 0.1;
+  }
+
+  [aria-disabled="true"] {
+    opacity: 0.5;
+  }
+
+  [class*="language-"] {
+    font-family: monospace;
+  }
+
+  @media screen and (min-width: 640px) {
+    div.red {
+      color: red;
+    }
+
+    div#blah {
+      background-color: url("https://wherever.com") !important;
+    }
+  }
+<% end %>
+
+<div class="two-col">
+  <label>
+    CSS (PrismJS)
+    <pre><code class="language-css"><%= css_code %></code></pre>
+  </label>
+
+  <label>
+    CSS (Rouge)
+  <%= markdownify("```css\n#{css_code.html_safe}```") %>
+  </label>
+</div>
+
+<% markdown_code = capture do %>
 **I am bolded text!**
 
 Markdown
 italic 	Italicised text. Mostly found in document-markup languages.
 
 *I am italicised text!*
-```
+<% end %>
+
+<div class="two-col">
+  <label>
+    Markdown (PrismJS)
+    <pre><code  class="language-md"><%= markdown_code %></code></pre>
+  </label>
+
+  <label>
+    Markdown (Rouge)
+  <%= markdownify("```md\n#{markdown_code.html_safe}```") %>
+  </label>
+</div>
+
+Themes pulled from here:
+
+<https://github.com/PrismJS/prism-themes/tree/master/themes>
+
+Prism Tokens pulled from here:
+
+<https://prismjs.com/tokens.html>
+
+Rouge Tokens pulled from here:
+
+<https://github.com/rouge-ruby/rouge/blob/1687d63cede01e9e1c108425e9987060ad85c79d/lib/rouge/token.rb#L69>
+
+<%= markdownify(site.metadata.github_help) %>
+

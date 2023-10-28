@@ -1,1 +1,13 @@
 @import "@picocss/pico";
+
+.highlight code {
+  color: unset;
+}
+
+:where(:not(:defined)) {
+  display: none;
+}
+
+pre.highlight {
+  padding: 0;
+}

@@ -66,7 +66,7 @@ export const ROUGE_SCHEMA = {
     }
   },
   "Comment.Single": {
-    "selector": ".cs",
+    "selector": ".c1",
     "styles": {
       "font-weight": "",
       "font-style": "",
@@ -238,6 +238,15 @@ export const ROUGE_SCHEMA = {
   },
   "Literal.String": {
     "selector": ".s",
+    "styles": {
+      "font-weight": "",
+      "font-style": "",
+      "color": "",
+      "background-color": "",
+    }
+  },
+  "Name": {
+    "selector": ".n",
     "styles": {
       "font-weight": "",
       "font-style": "",

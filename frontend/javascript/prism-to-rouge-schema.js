@@ -26,7 +26,7 @@ export const PRISM_TO_ROUGE_SCHEMA = {
     ROUGE_KEYS["Name.Function"],
   ],
   "name": [
-    ROUGE_KEYS["Name.Builtin"]
+    ROUGE_KEYS["Name"]
   ],
   "boolean": [
     ROUGE_KEYS["Keyword.Pseudo"]
@@ -110,6 +110,7 @@ export const PRISM_TO_ROUGE_SCHEMA = {
     ROUGE_KEYS["Name.Namespace"]
   ],
   "prolog": [
+    ROUGE_KEYS["Comment.Preproc"]
   ],
   "doctype": [
     ROUGE_KEYS["Comment.Preproc"]
