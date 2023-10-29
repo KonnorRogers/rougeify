@@ -4,7 +4,7 @@
     <%= render "head", metadata: site.metadata, title: data.title %>
   </head>
   <body class="<%= data.layout %> <%= data.page_class %>">
-    <main style="padding: 1rem;">
+    <main style="padding: 0.5rem 1rem" class="flow">
       <%= yield %>
     </main>
 

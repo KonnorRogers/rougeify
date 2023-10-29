@@ -51,10 +51,15 @@ Prism.manual = true;
     prism_stylesheet.innerText = prism_textarea.value
   }
 
-  rouge_textarea.addEventListener("input", updateRougeStylesheet)
-  prism_textarea.addEventListener("input", updatePrismStylesheet)
+  function handlePrismTextAreaInput () {
+    updatePrismStylesheet()
+    convertPrismToRouge()
+  }
 
-  document.querySelector("#prism-to-rouge").addEventListener("click", convertPrismToRouge)
+  rouge_textarea.addEventListener("input", updateRougeStylesheet)
+  prism_textarea.addEventListener("input", handlePrismTextAreaInput)
+
+  // document.querySelector("#prism-to-rouge").addEventListener("click", convertPrismToRouge)
 
   // Make code blocks scrollable with keyboard.
   document.querySelectorAll("pre").forEach((pre) => pre.tabIndex = "0")

@@ -2,11 +2,12 @@
 layout: default
 ---
 
-What is this?
-
-This is a [PrismJS](https://prismjs.com/) -> [Rouge](https://github.com/rouge-ruby/rouge) theme converter. Yes, there will be bugs. Yes things may not be 100% accurate. But this is merely a starting point.
-
-<%= markdownify(site.metadata.github_help) %>
+<!-- # [PrismJS](https://prismjs.com/) -> [Rouge](https://github.com/rouge-ruby/rouge) theme converter. -->
+<!---->
+<!--  Yes, there will be bugs. Yes things may not be 100% accurate. But this is merely a starting point. -->
+<!---->
+<!---->
+<!-- <%= markdownify(site.metadata.github_help) %> -->
 
 <style id="rouge-stylesheet"></style>
 <style id="prism-stylesheet"></style>
@@ -18,7 +19,7 @@ This is a [PrismJS](https://prismjs.com/) -> [Rouge](https://github.com/rouge-ru
     gap: 16px;
   }
   textarea {
-    min-height: 60vh;
+    min-height: 70vh;
     width: 100%;
     padding: 0.5em 1em;
   }
@@ -56,19 +57,6 @@ This is a [PrismJS](https://prismjs.com/) -> [Rouge](https://github.com/rouge-ru
   <textarea id="prism-theme-content-<%= theme.theme_name %>" hidden><%= theme.content %></textarea>
 <% end %>
 
-
-<div style="display: flex; justify-content: space-between;">
-  <sl-select id="prism-theme-selector" value="">
-    <sl-option value="">Choose a Prism Theme:</sl-option>
-
-    <% site.data.prism_themes.each do |_key, theme| %>
-      <sl-option value="<%= theme.theme_name %>"><%= theme.theme_name %></sl-option>
-    <% end %>
-  </sl-select>
-
-  <button id="prism-to-rouge" style="margin-inline-start: auto; margin-inline-end: 40px; width: auto;">Convert</button>
-</div>
-
 <sl-split-panel class="split-panel-custom" style="margin-top: 1rem;">
   <sl-icon slot="divider" name="grip-vertical"></sl-icon>
 
@@ -82,6 +70,16 @@ This is a [PrismJS](https://prismjs.com/) -> [Rouge](https://github.com/rouge-ru
     <textarea id="rouge-textarea"></textarea>
   </div>
 </sl-split-panel>
+
+<div style="display: flex; align-items: center; gap: 1rem;">
+  <sl-select id="prism-theme-selector" value="">
+    <sl-option value="">Choose a Prism Theme:</sl-option>
+
+    <% site.data.prism_themes.each do |_key, theme| %>
+      <sl-option value="<%= theme.theme_name %>"><%= theme.theme_name %></sl-option>
+    <% end %>
+  </sl-select>
+</div>
 
 <% diff_code = capture do %>
 Hello
@@ -243,4 +241,3 @@ Rouge Tokens pulled from here:
 <https://github.com/rouge-ruby/rouge/blob/1687d63cede01e9e1c108425e9987060ad85c79d/lib/rouge/token.rb#L69>
 
 <%= markdownify(site.metadata.github_help) %>
-

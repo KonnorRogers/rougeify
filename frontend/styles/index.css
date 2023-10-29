@@ -1,5 +1,9 @@
 @import "@picocss/pico";
 
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1rem);
+}
+
 .highlight code {
   color: unset;
 }
@@ -10,4 +14,32 @@
 
 pre.highlight {
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 16px;
+  /* letter-spacing: 0.025em; */
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100%;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+  scrollbar-gutter: stable;
+	display: grid;
+	grid-template-rows: minmax(0, 1fr);
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
 }
