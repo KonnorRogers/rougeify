@@ -1,0 +1,90 @@
+<!doctype html>
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<title>Test | Rougeify</title>
+
+<meta name="description" content="A project to convert themes from other syntax highlighters into Rouge compatible themes." />
+
+<link rel="stylesheet" href="/rougeify/_bridgetown/static/index.XQCY44Q4.css" />
+<script src="/rougeify/_bridgetown/static/index.CDBLQ2Y6.js" type="module"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/themes/light.css" />
+<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/shoelace-autoloader.js"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖍️</text></svg>">
+
+
+
+  </head>
+  <body class="default ">
+    <main style="padding: 0.5rem 1rem" class="flow">
+      <p>Diff</p>
+
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">Hello
+</span><span class="gd">- World
+</span><span class="gi">+ Universe
+</span></code></pre></div></div>
+
+<p>Ruby</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">list</span> <span class="k">if</span> <span class="n">list</span><span class="p">.</span><span class="nf">size</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="c1"># already sorted</span>
+  <span class="n">swapped</span> <span class="o">=</span> <span class="kp">true</span>
+  <span class="k">while</span> <span class="n">swapped</span> <span class="k">do</span>
+    <span class="n">swapped</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="mi">0</span><span class="p">.</span><span class="nf">upto</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="nf">size</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+      <span class="k">if</span> <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># swap values</span>
+        <span class="n">swapped</span> <span class="o">=</span> <span class="kp">true</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">list</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>HTML</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="k">@media</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">640px</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nt">div</span><span class="nc">.red</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nt">div</span><span class="nf">#blah</span> <span class="p">{</span>
+        <span class="nl">background-color</span><span class="p">:</span> <span class="sx">url("https://wherever.com")</span> <span class="cp">!important</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;main&gt;</span>Hi from HTML<span class="nt">&lt;/main&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Markdown</p>
+
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">**I am bolded text!**</span>
+
+Markdown
+italic 	Italicised text. Mostly found in document-markup languages.
+
+<span class="ge">*I am italicised text!*</span>
+</code></pre></div></div>
+
+    </main>
+
+    <footer style="display: grid; place-content: center; background-color: rgba(0,0,0,0.1); padding: 0.5em;">
+      Made by Konnor Rogers using Bridgetown + Shoelace + PicoCSS
+    </footer>
+  </body>
+</html>
