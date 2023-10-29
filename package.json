@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "esbuild": "^0.19.2",
+    "gh-pages": "^6.0.0",
     "glob": "^10.3.3",
     "postcss": "^8.4.29",
     "postcss-flexbugs-fixes": "^5.0.2",
