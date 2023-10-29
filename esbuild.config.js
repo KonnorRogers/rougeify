@@ -32,6 +32,10 @@ const build = require("./config/esbuild.defaults.js")
  * @type {BuildOptions}
  */
 const esbuildOptions = {
+  define: {
+    "process.env.BASE_PATH": `"${process.env.BASE_PATH}"`
+  },
+  publicPath: path.join(process.env.BASE_PATH, "_bridgetown", "static"),
   plugins: [
     // add new plugins here...
   ],
