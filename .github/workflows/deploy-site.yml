@@ -78,7 +78,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          yarn exec gh-pages -d ./docs/output -b gh-pages -- -u "github-actions-bot <support+actions@github.com>"
+          yarn exec gh-pages -d ./output -b gh-pages -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -86,7 +86,7 @@ jobs:
         if: github.ref != 'refs/heads/main'
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          yarn exec gh-pages -d ./docs/output --dest "${{ env.PR_PATH }}" -b gh-pages -- -u "github-actions-bot <support+actions@github.com>"
+          yarn exec gh-pages -d ./output --dest "${{ env.PR_PATH }}" -b gh-pages -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
