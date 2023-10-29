@@ -38,13 +38,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      # https://stackoverflow.com/questions/76107036/how-do-i-use-yarn-version-3-5-on-github-actions-error-cannot-find-module
       - name: Install Yarn 4
         run: corepack prepare yarn@4 --activate
 
       - name: Activate Yarn 4
         run: yarn set version 4
 
-      - name: Install Node.js dependencies
+      - name: Install NPM dependencies
         run: yarn install --immutable --immutable-cache --check-cache
 
       - uses: ruby/setup-ruby@v1
