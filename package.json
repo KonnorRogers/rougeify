@@ -1,4 +1,25 @@
 {
   "name": "rougeify",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "esbuild": "node esbuild.config.js --minify",
+    "esbuild-dev": "node esbuild.config.js --watch",
+    "build": "NODE_ENV=\"production\" yarn run esbuild && BRIDGETOWN_ENV=\"production\" bundle exec bridgetown build && touch output/.nojekyll"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.2",
+    "glob": "^10.3.3",
+    "postcss": "^8.4.29",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^15.1.0",
+    "postcss-load-config": "^4.0.1",
+    "postcss-preset-env": "^9.1.2",
+    "read-cache": "^1.0.0"
+  },
+  "dependencies": {
+    "@picocss/pico": "^1.5.10",
+    "prismjs": "^1.29.0"
+  },
   "packageManager": "yarn@4.0.1"
 }
