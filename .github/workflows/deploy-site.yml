@@ -14,6 +14,7 @@ jobs:
     strategy:
       matrix:
         node-version: [20]
+        ruby-version: [3.1]
     env:
       PR_PATH: pull/${{github.event.number}}
     steps:
@@ -49,7 +50,7 @@ jobs:
         #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # if needed
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
+          ruby-version: ${{ matrix.ruby-version }}
           rubygems: latest
           bundler-cache: true
 
