@@ -1,3 +1,4 @@
+const path = require("node:path")
 const build = require("./config/esbuild.defaults.js")
 
 // You can customize this as you wish, perhaps to add new esbuild plugins.
