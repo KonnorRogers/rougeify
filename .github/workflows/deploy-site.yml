@@ -38,13 +38,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # https://github.com/marketplace/actions/github-action-for-yarn
-      - name: Install yarn
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install # will run `yarn install` command
-        # env:
-        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # if needed
+      - name: Install Yarn 4
+        run: corepack prepare yarn@4 --activate
+
+      - name: Activate Yarn 4
+        run: yarn set version 4
+
+      - name: Install Node.js dependencies
+        run: yarn install --immutable --immutable-cache --check-cache
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
@@ -63,12 +65,8 @@ jobs:
       - name: Set base_url
         run: echo "BASE_URL=$URL/$BASE_PATH" >> $GITHUB_ENV
 
-
-      # Yarn build
-      - name: Build production bundle
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build # will run `yarn build` command
+      - name: Build site
+        run: yarn run build
 
       - name: Set username + email
         run: |
