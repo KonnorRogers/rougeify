@@ -2,13 +2,6 @@
 layout: default
 ---
 
-<!-- # [PrismJS](https://prismjs.com/) -> [Rouge](https://github.com/rouge-ruby/rouge) theme converter. -->
-<!---->
-<!--  Yes, there will be bugs. Yes things may not be 100% accurate. But this is merely a starting point. -->
-<!---->
-<!---->
-<!-- <%= markdownify(site.metadata.github_help) %> -->
-
 <style id="rouge-stylesheet"></style>
 <style id="prism-stylesheet"></style>
 
@@ -227,6 +220,16 @@ italic 	Italicised text. Mostly found in document-markup languages.
   <%= markdownify("```md\n#{markdown_code.html_safe}```") %>
   </label>
 </div>
+
+What is this thing??
+
+# A [PrismJS](https://prismjs.com/) -> [Rouge](https://github.com/rouge-ruby/rouge) theme converter.
+
+ Yes, there will be bugs. Yes things may not be 100% accurate. But this is merely a starting point.
+
+
+<%= markdownify(site.metadata.github_help) %>
+
 
 Themes pulled from here:
 
